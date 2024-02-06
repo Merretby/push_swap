@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:49:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/06 16:13:32 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/06 20:40:09 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,15 @@ void	creat_list(int ac, char **av, t_list **stack_a)
 	//ft_free(tmp);
 }
 
-void print_list(t_list *head) 
-{
-	printf("LIST => \n");
-    while (head != NULL) {
-        printf("Content: %d, Index: %d\n", head->content, head->index);
-        head = head->next;
-    }
-	printf("\n\n");
-}
+// void print_list(t_list *head) 
+// {
+// 	printf("LIST => \n");
+//     while (head != NULL) {
+//         printf("Content: %d, Index: %d\n", head->content, head->index);
+//         head = head->next;
+//     }
+// 	printf("\n\n");
+// }
 
 int	main(int ac, char **av)
 {
@@ -104,7 +104,7 @@ int	main(int ac, char **av)
 	*stack_a = NULL;
 	*stack_b = NULL;
 	creat_list(ac, av, stack_a);
-	sa(stack_a);
-	print_list(*stack_a);
-	print_list(*stack_b);
+	reverse_rotate(stack_a);
+	// print_list(*stack_a);
+	// print_list(*stack_b);
 }
