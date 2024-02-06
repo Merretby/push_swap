@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:07:46 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/06 15:46:46 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:18:31 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ void	check(int ac, char **av)
 			print_error("Error");
 		if (!ft_num(tmp[i]))
 			print_error("Error");
-		// if (nb > 2147483647 && nb < -2147483648)
-		// 	print_error("Error");
+		if ((nb > 2147483647) || (nb < -2147483648))
+			print_error("Error");
 		i++;
 	}
 	if (ac == 2)

@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:49:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/06 16:07:41 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:13:32 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ void	creat_list(int ac, char **av, t_list **stack_a)
 	//ft_free(tmp);
 }
 
-void print_list(t_list *head) {
+void print_list(t_list *head) 
+{
 	printf("LIST => \n");
     while (head != NULL) {
         printf("Content: %d, Index: %d\n", head->content, head->index);

@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:52:21 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/06 16:05:10 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:18:49 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_list	*ft_lstnew(int content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
-//push_swap
+//rules push_swap
 int		ft_swap(t_list **stack);
 int		sa(t_list **stack);
 int		sb(t_list **stack);
@@ -50,5 +50,6 @@ int		pb(t_list **stack_a, t_list **stack_b);
 int		ft_rotate(t_list **stack);
 int		ra(t_list **stack_a);
 int		rb(t_list **stack_b);
+int		rr(t_list **stack_a, t_list **stack_b);
 
 #endif
