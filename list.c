@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:25:54 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/03 15:00:21 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/06 09:41:02 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		while (tmp->next != NULL)
 			tmp = tmp->next;
 		tmp->next = new;
+	}
+}
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (lst && new)
+	{
+		new->next = *lst;
+		*lst = new;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:49:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/03 15:09:38 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/06 10:11:39 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 t_list	*find_min(t_list **stack)
 {
+	// printf("dkholt\n\n");
 	t_list	*min;
 	t_list	*head;
 	int		is_min;
@@ -25,28 +26,32 @@ t_list	*find_min(t_list **stack)
 		return (min);
 	while (head)
 	{
-		if (head->index == -1 && (head->content < min->content || !is_min))
+		if (head->index == -1 && (is_min == 0 ||head->content < min->content))
 		{
+			// printf("this is the is the head valu: %d\n\n", head->content);
 			min = head;
 			is_min = 1;
+			// printf("this is the is the min valu: %d\n\n", min->content);
+			// printf("this is the is the next valu: %d\n\n", head->next->content);
+			// printf("-----------------------------\n\n");
 		}
 		head = head->next;
 	}
-	printf("%d\n", min->content);
+	// printf("%d\n", min->content);
 	return (min);
 }
 
 void	index_of_stack(t_list **stack)
 {
-	t_list	*first;
+	t_list	*min;
 	int		i;
 
 	i = 0;
-	first = find_min(stack);
-	while (first)
+	min = find_min(stack);
+	while (min)
 	{
-		first->index = i++;
-		first = find_min(stack);
+		min->index = i++;
+		min = find_min(stack);
 	}
 }
 
@@ -71,8 +76,17 @@ void	creat_list(int ac, char **av, t_list **stack_a)
 		i++;
 	}
 	index_of_stack(stack_a);
-	ft_free(tmp);	
+	//ft_free(tmp);
 }
+
+// void print_list(t_list *head) {
+// 	printf("LIST => \n");
+//     while (head != NULL) {
+//         printf("Content: %d, Index: %d\n", head->content, head->index);
+//         head = head->next;
+//     }
+// 	printf("\n\n");
+// }
 
 int	main(int ac, char **av)
 {
@@ -89,4 +103,7 @@ int	main(int ac, char **av)
 	*stack_a = NULL;
 	*stack_b = NULL;
 	creat_list(ac, av, stack_a);
+	ft_swap(stack_a);
+	// print_list(*stack_a);
+	// print_list(*stack_b);
 }

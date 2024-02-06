@@ -1,22 +1,37 @@
+SRCM	= push_swap.c help1.c error.c utiles.c utiles2.c list.c swap.c push.c
+
+# SRCB = bonus/bonus.c bonus/bonus_helper.c parsing.c list_utils.c  list_utils2.c  \
+# 	   stack_utils/stack_utils.c stack_utils/stack_utils2.c stack_utils/stack_utils3.c stack_utils/stack_utils4.c
+
+OBJM	= ${SRCM:.c=.o}
+# OBJB	= ${SRCB:.c=.o}
+
 NAME = push_swap
-CC = cc
-CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
-CFILES = push_swap.c help1.c error.c utiles.c utiles2.c list.c
+#NAME_BONUS = checker
 
-OFILSE = $(CFILES:.c=.o)
+CFLAGS	= -Wall -Werror -Wextra -g -fsanitize=address 
+CC		= cc
+# LIBFTA 	= ./includes/libft/libft.a
 
-all: $(NAME)
+all : ${NAME}
 
-$(NAME): $(OFILSE)
+#bonus : ${NAME_BONUS}
 
-.c.o:
-	$(CC) $(CFLAGS) -c $<
-	ar rc $(NAME) $@
+# ${LIBFTA} : 
+# 	@make -C includes/libft
 
-clean:
-	rm -f $(OFILSE) $(OBONUS)
+${NAME} : ${OBJM} 
+	${CC} ${CFLAGS} ${OBJM}  -o ${NAME}
 
-fclean: clean
-	rm -f $(NAME)
+# ${NAME_BONUS} : ${OBJB} 
+# 	${CC} ${CFLAGS} ${OBJB}  -o ${NAME_BONUS} 
 
-re: fclean all
+clean :
+	# @make -C includes/libft clean
+	rm -f ${OBJM} ${OBJB}
+
+fclean : clean
+	# @make -C includes/libft fclean
+	rm -f ${NAME} $(NAME_BONUS)
+
+re : fclean all

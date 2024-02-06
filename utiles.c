@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:13:29 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/01/22 18:46:00 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:46:27 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ long	ft_atoi(const char *str)
 	return (res * signe);
 }
 
-void	ft_putendl_fd(char *s)
+void	ft_putstr(char *s)
 {
 	int	i;
 

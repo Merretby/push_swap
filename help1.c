@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:07:46 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/03 14:57:34 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:15:52 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	check(int ac, char **av)
 
 	i = 0;
 	if (ac == 2)
-		tmp = ft_split(av[1], ' '); 
+		tmp = ft_split(av[1], ' ');
 	else
 	{
 		tmp = av;
