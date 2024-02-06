@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:49:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/06 20:40:09 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/06 20:59:19 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	main(int ac, char **av)
 	*stack_a = NULL;
 	*stack_b = NULL;
 	creat_list(ac, av, stack_a);
-	reverse_rotate(stack_a);
+	// reverse_rotate(stack_a);
 	// print_list(*stack_a);
 	// print_list(*stack_b);
 }
