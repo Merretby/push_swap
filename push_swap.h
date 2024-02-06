@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:52:21 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/06 10:34:21 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:05:10 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,8 @@ int		ss(t_list **stack_a, t_list **stack_b);
 int		ft_push(t_list **stack_x, t_list **stack_y);
 int		pa(t_list **stack_a, t_list **stack_b);
 int		pb(t_list **stack_a, t_list **stack_b);
+int		ft_rotate(t_list **stack);
+int		ra(t_list **stack_a);
+int		rb(t_list **stack_b);
 
 #endif

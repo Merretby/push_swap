@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:25:54 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/06 09:41:02 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:02:24 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,17 @@ t_list	*ft_lstnew(int content)
 	return (node);
 }
 
+static t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+	{
+		lst = lst->next;
+	}
+	return (lst);
+}
+
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
@@ -38,10 +49,9 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 	else
 	{
-		tmp = *lst;
-		while (tmp->next != NULL)
-			tmp = tmp->next;
+		tmp = ft_lstlast(*lst);
 		tmp->next = new;
+		new->next = NULL;
 	}
 }
 
