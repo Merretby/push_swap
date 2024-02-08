@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:52:21 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/06 20:09:35 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/08 15:57:41 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-void	check(int ac, char **av);
 //hande error
+void	check(int ac, char **av);
 void	print_error(char *err);
 void	**ft_free(char **fr);
 //utiles for help
@@ -34,6 +34,7 @@ int		ft_num(char *s);
 long	ft_atoi(const char *str);
 void	ft_putstr(char *s);
 char	**ft_split(char const *s, char c);
+int 	the_min(t_list **stack, int i);
 //linked list
 t_list	*ft_lstnew(int content);
 t_list	*ft_lstlast(t_list *lst);
@@ -53,5 +54,11 @@ int		ra(t_list **stack_a);
 int		rb(t_list **stack_b);
 int		rr(t_list **stack_a, t_list **stack_b);
 int		reverse_rotate(t_list **stack);
+int 	rra(t_list **stack_a);
+int 	rrb(t_list **stack_b);
+int 	rrr(t_list **stack_a, t_list **stack_b);
+//sort
+int		cheack_sorted(t_list **stack);
+void	sort(t_list **stack_a, t_list **stack_b);
 
 #endif
