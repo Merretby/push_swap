@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:52:21 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/08 15:57:41 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/08 20:50:33 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ long	ft_atoi(const char *str);
 void	ft_putstr(char *s);
 char	**ft_split(char const *s, char c);
 int 	the_min(t_list **stack, int i);
+int		cheack_sorted(t_list **stack);
+int		track_index_min(t_list **stack, int i);
 //linked list
 t_list	*ft_lstnew(int content);
 t_list	*ft_lstlast(t_list *lst);
@@ -59,6 +61,6 @@ int 	rrb(t_list **stack_b);
 int 	rrr(t_list **stack_a, t_list **stack_b);
 //sort
 int		cheack_sorted(t_list **stack);
-void	sort(t_list **stack_a, t_list **stack_b);
+void	sort(t_list **stack_a,t_list **stack_b);
 
 #endif
