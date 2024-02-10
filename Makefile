@@ -1,5 +1,5 @@
 SRCM	= push_swap.c help1.c error.c utiles.c utiles2.c list.c swap.c push.c rotate.c \
-	reverse_rotate.c sort.c
+	reverse_rotate.c sort.c sort_array.c
 
 # SRCB = bonus/bonus.c bonus/bonus_helper.c parsing.c list_utils.c  list_utils2.c  \
 # 	   stack_utils/stack_utils.c stack_utils/stack_utils2.c stack_utils/stack_utils3.c stack_utils/stack_utils4.c

@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:52:21 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/08 20:50:33 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/10 19:59:05 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@ typedef struct s_list
 	int				index;
 	struct s_list	*next;
 }	t_list;
+
+typedef struct s_sort
+{
+	int	start;
+	int	end;
+	int	Range;
+	int *array;
+}	t_sort;
 
 //hande error
 void	check(int ac, char **av);
@@ -61,6 +69,9 @@ int 	rrb(t_list **stack_b);
 int 	rrr(t_list **stack_a, t_list **stack_b);
 //sort
 int		cheack_sorted(t_list **stack);
+void	sort_stack(t_list **stack_a, t_list **stack_b);
 void	sort(t_list **stack_a,t_list **stack_b);
+void	simple_sort(t_list **stack_a);
+void	array_sort(t_sort *new_sort, t_list **stack);
 
 #endif

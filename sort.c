@@ -6,13 +6,21 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:27:03 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/09 16:31:21 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/10 20:06:33 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_3(t_list **stack)
+void	sort_stack(t_list **stack_a, t_list **stack_b)
+{
+	if (ft_lstsize(*stack_a) <= 5)
+		sort(stack_a, stack_b);
+	else
+		simple_sort(stack_a);
+}
+
+static void	sort_3(t_list **stack)
 {
 	t_list	*head;
 	int		min_index;
@@ -41,7 +49,7 @@ void	sort_3(t_list **stack)
 		ra(stack);
 }
 
-void	sort_4(t_list **stack_a, t_list **stack_b)
+static void	sort_4(t_list **stack_a, t_list **stack_b)
 {
 	int 	track;
 
@@ -64,7 +72,7 @@ void	sort_4(t_list **stack_a, t_list **stack_b)
 	pa(stack_a, stack_b);
 }
 
-void	sort_5(t_list **stack_a, t_list **stack_b)
+static void	sort_5(t_list **stack_a, t_list **stack_b)
 {
 	int 	track;
 	
