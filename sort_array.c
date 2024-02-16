@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:59:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/16 19:23:58 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/16 21:37:15 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,7 @@ void	array_sort(t_sort *new_sort, t_list **stack_a, t_list **stack_b)
 	sorting(stack_a, stack_b, new_sort);
 	index_of_b(stack_b);
 	back_to_a(stack_a, stack_b);
+	free (new_sort->array);
 }
 
 void	increment_range(t_sort *new_sort, int size)

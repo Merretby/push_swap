@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:52:21 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/15 15:50:57 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/16 21:48:24 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_sort
 void	check(int ac, char **av);
 void	print_error(char *err);
 void	**ft_free(char **fr);
+void	free_stack(t_list **stack);
 //utiles for help
 int		ft_isdigit(int c);
 int		ft_num(char *s);

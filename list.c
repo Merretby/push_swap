@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:25:54 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/16 18:55:09 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/16 21:36:27 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
 
-	// printf("----------->%d\n\n", new->content);
 	if ((*lst) == NULL)
 	{
 		*lst = new;
