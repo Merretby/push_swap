@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:27:03 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/10 20:06:33 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:49:48 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	sort_stack(t_list **stack_a, t_list **stack_b)
 	if (ft_lstsize(*stack_a) <= 5)
 		sort(stack_a, stack_b);
 	else
-		simple_sort(stack_a);
+		simple_sort(stack_a, stack_b);
 }
 
 static void	sort_3(t_list **stack)

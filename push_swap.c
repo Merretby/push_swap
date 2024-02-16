@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:49:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/10 20:06:06 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/16 19:28:34 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,8 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		exit (1);
 	check(ac, av);
-	stack_a = malloc(sizeof(t_list));
-	stack_b = malloc(sizeof(t_list));
+	stack_a = malloc(sizeof(t_list *));
+	stack_b = malloc(sizeof(t_list *));
 	if (!stack_a || !stack_b)
 		exit (1);
 	*stack_a = NULL;
@@ -108,5 +108,5 @@ int	main(int ac, char **av)
 		exit (0);
 	sort_stack(stack_a, stack_b);
 	print_list(*stack_a);
-	// print_list(*stack_b);
+	print_list(*stack_b);
 }
