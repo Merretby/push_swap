@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:49:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/17 11:18:56 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/17 20:29:48 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,38 +52,40 @@ void	index_of_stack(t_list **stack)
 void	creat_list(int ac, char **av, t_list **stack_a)
 {
 	int		i;
+	int		j;
 	char	**tmp;
 	t_list	*node;
 
-	i = 0;
-	if (ac == 2)
-		tmp = ft_split(av[1], ' ');
-	else
+	i = 1;
+	while (i < ac)
 	{
-		i++;
-		tmp = av;
-	}
-	while (tmp[i])
-	{
-		node = ft_lstnew(ft_atoi(tmp[i]));
-		ft_lstadd_back(stack_a, node);
-		i++;
-	}
-	index_of_stack(stack_a);
-	if (ac == 2)
+		tmp = ft_split(av[i], ' ');
+		j = 0;
+		while (tmp[j])
+		{
+			if (check_dobel(ft_atoi(tmp[j]), stack_a))
+				print_error("Error");
+			node = ft_lstnew(ft_atoi(tmp[j]));
+			ft_lstadd_back(stack_a, node);
+			j++;
+		}
+		index_of_stack(stack_a);
 		ft_free(tmp);
+	i++;
+	}
+	
 }
 
-void	print_list(t_list *head)
-{
-	printf("LIST => \n");
-	while (head != NULL)
-	{
-		printf("Content: %d, Index: %d\n", head->content, head->index);
-		head = head->next;
-	}
-	printf("\n\n");
-}
+// void	print_list(t_list *head)
+// {
+// 	printf("LIST => \n");
+// 	while (head != NULL)
+// 	{
+// 		printf("Content: %d, Index: %d\n", head->content, head->index);
+// 		head = head->next;
+// 	}
+// 	printf("\n\n");
+// }
 
 int	main(int ac, char **av)
 {
@@ -103,8 +105,8 @@ int	main(int ac, char **av)
 	if (cheack_sorted(stack_a))
 		exit (0);
 	sort_stack(stack_a, stack_b);
-	print_list(*stack_a);
-	print_list(*stack_b);
+	// print_list(*stack_a);
+	// print_list(*stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }

@@ -6,20 +6,22 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:07:46 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/17 10:06:37 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/17 19:35:12 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	check_dobel(int nb, char **tmp, int index)
+int	check_dobel(int nb, t_list **stack)
 {
-	index++;
-	while (tmp[index])
+	t_list *tmp;
+
+	tmp = *stack;
+	while (tmp)
 	{
-		if (nb == ft_atoi(tmp[index]))
+		if (nb == tmp->content)
 			return (1);
-		index++;
+		tmp = tmp->next;
 	}
 	return (0);
 }
@@ -43,28 +45,24 @@ int	ft_num(char *s)
 void	check(int ac, char **av)
 {
 	int		i;
-	long	nb;
 	char	**tmp;
+	int		j;
 
-	i = 0;
-	if (ac == 2)
-		tmp = ft_split(av[1], ' ');
-	else
+	i = 1;
+	while (i < ac)
 	{
-		tmp = av;
-		i++;
-	}
-	while (tmp[i])
-	{
-		nb = ft_atoi(tmp[i]);
-		if (check_dobel(nb, tmp, i))
-			print_error("Error");
-		if (!ft_num(tmp[i]))
-			print_error("Error");
-		if ((nb > 2147483647) || (nb < -2147483648))
-			print_error("Error");
-		i++;
-	}
-	if (ac == 2)
+		tmp = ft_split(av[i], ' ');
+		j = 0; 
+		while (tmp[j])
+		{
+			long nb = ft_atoi(tmp[j]);
+			if (!ft_num(tmp[j]))
+				print_error("Error");
+			if (nb > 2147483647 || nb < -2147483648)
+				print_error("Error");
+			j++;
+		}
 		ft_free(tmp);
+		i++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:52:21 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/17 10:32:06 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/17 20:28:35 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int		ft_isdigit(int c);
 int		ft_num(char *s);
 long	ft_atoi(const char *str);
 void	ft_putstr(char *s);
+int		check_dobel(int nb, t_list **stack);
 char	**ft_split(char const *s, char c);
 int		the_min(t_list **stack, int i);
 int		track_index_min(t_list **stack, int i);
