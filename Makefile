@@ -1,38 +1,62 @@
-SRCM	= push_swap.c help1.c error.c utiles.c utiles2.c list.c swap.c push.c rotate.c \
-	reverse_rotate.c sort.c sort_array.c
+NAME = push_swap
+CC = cc
+CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address 
+CFILES = push_swap.c help1.c error.c utiles.c utiles2.c list.c swap.c push.c rotate.c \
+	reverse_rotate.c sort.c sort_array.c sort_array2.c 
+
+OFILSE = $(CFILES:.c=.o)
+
+
+
+all: $(NAME)
+
+$(NAME): $(OFILSE)
+	$(CC) $(CFLAGS) ${OFILSE} -o ${NAME}
+
+clean:
+	rm -f $(OFILSE) 
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+
+#SRCM	= push_swap.c help1.c error.c utiles.c utiles2.c list.c swap.c push.c rotate.c \
+	reverse_rotate.c sort.c sort_array.c sort_array2.c
 
 # SRCB = bonus/bonus.c bonus/bonus_helper.c parsing.c list_utils.c  list_utils2.c  \
 # 	   stack_utils/stack_utils.c stack_utils/stack_utils2.c stack_utils/stack_utils3.c stack_utils/stack_utils4.c
 
-OBJM	= ${SRCM:.c=.o}
+#OBJM	= ${SRCM:.c=.o}
 # OBJB	= ${SRCB:.c=.o}
 
-NAME = push_swap
+#NAME = push_swap
 #NAME_BONUS = checker
 
-CFLAGS	= -Wall -Werror -Wextra -g -fsanitize=address 
-CC		= cc
+#CFLAGS	= -Wall -Werror -Wextra -g -fsanitize=address 
+#CC		= cc
 # LIBFTA 	= ./includes/libft/libft.a
 
-all : ${NAME}
+#all : ${NAME}
 
 #bonus : ${NAME_BONUS}
 
 # ${LIBFTA} : 
 # 	@make -C includes/libft
 
-${NAME} : ${OBJM} 
-	${CC} ${CFLAGS} ${OBJM}  -o ${NAME}
+#${NAME} : ${OBJM} 
+#	${CC} ${CFLAGS} ${OBJM}  -o ${NAME}
 
 # ${NAME_BONUS} : ${OBJB} 
 # 	${CC} ${CFLAGS} ${OBJB}  -o ${NAME_BONUS} 
 
-clean :
-	# @make -C includes/libft clean
-	rm -f ${OBJM} ${OBJB}
+#clean :
+#	# @make -C includes/libft clean
+#	rm -f ${OBJM} ${OBJB}
 
-fclean : clean
-	# @make -C includes/libft fclean
-	rm -f ${NAME} $(NAME_BONUS)
+#fclean : clean
+#	# @make -C includes/libft fclean
+#	rm -f ${NAME} $(NAME_BONUS)
 
-re : fclean all
+#re : fclean all

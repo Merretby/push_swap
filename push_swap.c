@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:49:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/16 21:57:52 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/17 11:18:56 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list	*find_min(t_list **stack)
 		return (min);
 	while (head)
 	{
-		if (head->index == -1 && (is_min == 0 ||head->content < min->content))
+		if (head->index == -1 && (is_min == 0 || head->content < min->content))
 		{
 			min = head;
 			is_min = 1;
@@ -74,13 +74,14 @@ void	creat_list(int ac, char **av, t_list **stack_a)
 		ft_free(tmp);
 }
 
-void print_list(t_list *head) 
+void	print_list(t_list *head)
 {
 	printf("LIST => \n");
-    while (head != NULL) {
-        printf("Content: %d, Index: %d\n", head->content, head->index);
-        head = head->next;
-    }
+	while (head != NULL)
+	{
+		printf("Content: %d, Index: %d\n", head->content, head->index);
+		head = head->next;
+	}
 	printf("\n\n");
 }
 
@@ -102,8 +103,8 @@ int	main(int ac, char **av)
 	if (cheack_sorted(stack_a))
 		exit (0);
 	sort_stack(stack_a, stack_b);
-	print_list(*stack_b);
 	print_list(*stack_a);
+	print_list(*stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }

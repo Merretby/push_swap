@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:27:03 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/15 15:49:48 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/17 10:25:38 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	sort_3(t_list **stack)
 
 static void	sort_4(t_list **stack_a, t_list **stack_b)
 {
-	int 	track;
+	int	track;
 
 	track = track_index_min(stack_a, the_min(stack_a, -1));
 	if (cheack_sorted(stack_a))
@@ -74,8 +74,8 @@ static void	sort_4(t_list **stack_a, t_list **stack_b)
 
 static void	sort_5(t_list **stack_a, t_list **stack_b)
 {
-	int 	track;
-	
+	int	track;
+
 	track = track_index_min(stack_a, the_min(stack_a, -1));
 	if (track == 1)
 		sa(stack_a);

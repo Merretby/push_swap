@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:06:39 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/16 21:47:51 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/17 10:27:20 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	print_error(char *err)
 	ft_putstr(err);
 	exit (1);
 }
+
 void	free_stack(t_list **stack)
 {
 	t_list	*head;

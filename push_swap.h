@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:52:21 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/16 21:48:24 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/17 10:32:06 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ typedef struct s_sort
 {
 	int	start;
 	int	end;
-	int	Range;
-	int *array;
+	int	range;
+	int	*array;
 }	t_sort;
 
 //hande error
@@ -43,9 +43,10 @@ int		ft_num(char *s);
 long	ft_atoi(const char *str);
 void	ft_putstr(char *s);
 char	**ft_split(char const *s, char c);
-int 	the_min(t_list **stack, int i);
-int		cheack_sorted(t_list **stack);
+int		the_min(t_list **stack, int i);
 int		track_index_min(t_list **stack, int i);
+t_list	*git_the_big(t_list **stack_b);
+void	index_of_b(t_list **stack_b);
 //linked list
 t_list	*ft_lstnew(int content);
 t_list	*ft_lstlast(t_list *lst);
@@ -65,13 +66,13 @@ int		ra(t_list **stack_a);
 int		rb(t_list **stack_b);
 int		rr(t_list **stack_a, t_list **stack_b);
 int		reverse_rotate(t_list **stack);
-int 	rra(t_list **stack_a);
-int 	rrb(t_list **stack_b);
-int 	rrr(t_list **stack_a, t_list **stack_b);
+int		rra(t_list **stack_a);
+int		rrb(t_list **stack_b);
+int		rrr(t_list **stack_a, t_list **stack_b);
 //sort
 int		cheack_sorted(t_list **stack);
 void	sort_stack(t_list **stack_a, t_list **stack_b);
-void	sort(t_list **stack_a,t_list **stack_b);
+void	sort(t_list **stack_a, t_list **stack_b);
 void	simple_sort(t_list **stack_a, t_list **stack_b);
 void	array_sort(t_sort *new_sort, t_list **stack_a, t_list **stack_b);
 void	sorting(t_list **stack_a, t_list **stack_b, t_sort *new_sort);
