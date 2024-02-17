@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:49:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/17 20:29:48 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/17 22:14:50 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,10 @@ void	creat_list(int ac, char **av, t_list **stack_a)
 			ft_lstadd_back(stack_a, node);
 			j++;
 		}
-		index_of_stack(stack_a);
 		ft_free(tmp);
-	i++;
+		i++;
 	}
-	
+	index_of_stack(stack_a);
 }
 
 // void	print_list(t_list *head)
@@ -85,6 +84,16 @@ void	creat_list(int ac, char **av, t_list **stack_a)
 // 		head = head->next;
 // 	}
 // 	printf("\n\n");
+// }
+
+// void ft_display_stack(t_list **stack)
+// {
+// 	t_list *temp = *stack;
+// 	while (temp)
+// 	{
+// 		printf("%d\n", temp->content);
+// 		temp = temp->next;
+// 	}
 // }
 
 int	main(int ac, char **av)
@@ -102,6 +111,7 @@ int	main(int ac, char **av)
 	*stack_a = NULL;
 	*stack_b = NULL;
 	creat_list(ac, av, stack_a);
+	// ft_display_stack(stack_a);
 	if (cheack_sorted(stack_a))
 		exit (0);
 	sort_stack(stack_a, stack_b);
