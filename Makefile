@@ -1,8 +1,8 @@
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address 
-CFILES = push_swap.c help1.c error.c utiles.c utiles2.c list.c swap.c push.c rotate.c \
-	reverse_rotate.c sort.c sort_array.c sort_array2.c 
+CFILES = push_swap.c help1.c error.c utiles.c utiles2.c list.c ruels/swap.c ruels/push.c ruels/rotate.c \
+	ruels/reverse_rotate.c sort.c sort_array.c sort_array2.c 
 
 OFILSE = $(CFILES:.c=.o)
 

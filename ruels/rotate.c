@@ -1,49 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 20:43:46 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/17 10:26:43 by moer-ret         ###   ########.fr       */
+/*   Created: 2024/02/06 18:52:13 by moer-ret          #+#    #+#             */
+/*   Updated: 2024/02/19 18:53:51 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	reverse_rotate(t_list **stack)
+int	ft_rotate(t_list **stack)
 {
 	t_list	*tmp;
-	t_list	*second;
 
-	second = *stack;
-	while (second->next->next)
-		second = second->next;
-	tmp = ft_lstlast(*stack);
-	ft_lstadd_front(stack, tmp);
-	second->next = NULL;
+	tmp = *stack;
+	*stack = tmp->next;
+	ft_lstadd_back(stack, tmp);
 	return (0);
 }
 
-int	rra(t_list **stack_a)
+int	ra(t_list **stack_a)
 {
-	reverse_rotate(stack_a);
-	ft_putstr("rra");
+	ft_rotate(stack_a);
+	ft_putstr("ra");
 	return (0);
 }
 
-int	rrb(t_list **stack_b)
+int	rb(t_list **stack_b)
 {
-	reverse_rotate(stack_b);
-	ft_putstr("rrb");
+	ft_rotate(stack_b);
+	ft_putstr("rb");
 	return (0);
 }
 
-int	rrr(t_list **stack_a, t_list **stack_b)
+int	rr(t_list **stack_a, t_list **stack_b)
 {
-	reverse_rotate(stack_a);
-	reverse_rotate(stack_b);
-	ft_putstr("rrr");
+	ft_rotate(stack_a);
+	ft_rotate(stack_b);
+	ft_putstr("rr");
 	return (0);
 }

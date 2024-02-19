@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:49:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/19 15:53:36 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/19 19:00:15 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,8 @@ int	main(int ac, char **av)
 	if (cheack_sorted(stack_a))
 		exit (0);
 	sort_stack(stack_a, stack_b);
-	print_list(*stack_a);
-	print_list(*stack_b);
+	// print_list(*stack_a);
+	// print_list(*stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }

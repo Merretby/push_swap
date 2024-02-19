@@ -6,11 +6,11 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:05:04 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/09 16:27:27 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/19 18:53:41 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_swap(t_list **stack)
 {
