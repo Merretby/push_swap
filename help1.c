@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:07:46 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/17 19:35:12 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:52:57 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	ft_num(char *s)
 void	check(int ac, char **av)
 {
 	int		i;
+	long	nb;
 	char	**tmp;
 	int		j;
 
@@ -55,7 +56,7 @@ void	check(int ac, char **av)
 		j = 0; 
 		while (tmp[j])
 		{
-			long nb = ft_atoi(tmp[j]);
+			nb = ft_atoi(tmp[j]);
 			if (!ft_num(tmp[j]))
 				print_error("Error");
 			if (nb > 2147483647 || nb < -2147483648)
