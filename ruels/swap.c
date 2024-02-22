@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:05:04 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/19 18:53:41 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/22 18:22:11 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_swap(t_list **stack)
 	int		tmp;
 	int		index;
 
+	if (*stack == NULL)
+		return (-1);
 	head = *stack;
 	node = head->next;
 	if (!head && !node)
@@ -34,22 +36,21 @@ int	ft_swap(t_list **stack)
 
 int	sa(t_list **stack)
 {
-	ft_swap(stack);
-	ft_putstr("sa");
+	if (ft_swap(stack) != -1)
+		ft_putstr("sa");
 	return (0);
 }
 
 int	sb(t_list **stack)
 {
-	ft_swap(stack);
-	ft_putstr("sb");
+	if (ft_swap(stack) != -1)
+		ft_putstr("sb");
 	return (0);
 }
 
 int	ss(t_list **stack_a, t_list **stack_b)
 {
-	ft_swap(stack_a);
-	ft_swap(stack_b);
-	ft_putstr("ss");
+	if (ft_swap(stack_a) != -1 && ft_swap(stack_b) != -1)
+		ft_putstr("ss");
 	return (0);
 }

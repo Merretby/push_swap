@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:07:46 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/19 15:52:57 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/22 17:50:26 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,17 @@ void	check(int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
+		if (av[i][0] == '\0')
+				error("Error");
 		tmp = ft_split(av[i], ' ');
-		j = 0; 
+		j = 0;
 		while (tmp[j])
 		{
 			nb = ft_atoi(tmp[j]);
 			if (!ft_num(tmp[j]))
-				print_error("Error");
+				print_error("Error", tmp);
 			if (nb > 2147483647 || nb < -2147483648)
-				print_error("Error");
+				print_error("Error", tmp);
 			j++;
 		}
 		ft_free(tmp);

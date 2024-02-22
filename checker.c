@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/21 17:49:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/22 18:29:57 by moer-ret         ###   ########.fr       */
+/*   Created: 2024/02/22 13:53:20 by moer-ret          #+#    #+#             */
+/*   Updated: 2024/02/22 14:01:09 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ void	index_of_stack(t_list **stack)
 	}
 }
 
-void	creat_list(int ac, char **av, t_list **stack_a, t_list **stack_b)
+void	creat_list(int ac, char **av, t_list **stack_a)
 {
-	char	**tmp;
 	int		i;
 	int		j;
+	char	**tmp;
 	t_list	*node;
 
 	i = 1;
@@ -64,11 +64,7 @@ void	creat_list(int ac, char **av, t_list **stack_a, t_list **stack_b)
 		while (tmp[j])
 		{
 			if (check_dobel(ft_atoi(tmp[j]), stack_a))
-			{
-				free_stack (stack_a);
-				free_stack (stack_b);
-				print_error("Error", tmp);
-			}
+				print_error("Error");
 			node = ft_lstnew(ft_atoi(tmp[j]));
 			ft_lstadd_back(stack_a, node);
 			j++;
@@ -78,26 +74,16 @@ void	creat_list(int ac, char **av, t_list **stack_a, t_list **stack_b)
 	}
 	index_of_stack(stack_a);
 }
-	
-void	print_list(t_list *head)
-{
-	printf("LIST => \n");
-	while (head != NULL)
-	{
-		printf("Content: %d, Index: %d\n", head->content, head->index);
-		head = head->next;
-	}
-	printf("\n\n");
-}
 
-// void ft_display_stack(t_list **stack)
+// void	print_list(t_list *head)
 // {
-// 	t_list *temp = *stack;
-// 	while (temp)
+// 	printf("LIST => \n");
+// 	while (head != NULL)
 // 	{
-// 		printf("%d\n", temp->content);
-// 		temp = temp->next;
+// 		printf("Content: %d, Index: %d\n", head->content, head->index);
+// 		head = head->next;
 // 	}
+// 	printf("\n\n");
 // }
 
 int	main(int ac, char **av)
@@ -114,17 +100,12 @@ int	main(int ac, char **av)
 		exit (1);
 	*stack_a = NULL;
 	*stack_b = NULL;
-	creat_list(ac, av, stack_a, stack_b);
+	creat_list(ac, av, stack_a);
 	if (cheack_sorted(stack_a))
-	{
-		free_stack(stack_a);
-		free_stack(stack_b);
 		exit (0);
-	}
 	sort_stack(stack_a, stack_b);
-	print_list(*stack_a);
-	print_list(*stack_b);
+	// print_list(*stack_a);
+	// print_list(*stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }
- 

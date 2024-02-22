@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:52:21 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/17 20:28:35 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/22 15:47:50 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ typedef struct s_sort
 
 //hande error
 void	check(int ac, char **av);
-void	print_error(char *err);
+void	error(char *err);
+void	print_error(char *err, char **tmp);
 void	**ft_free(char **fr);
 void	free_stack(t_list **stack);
 //utiles for help

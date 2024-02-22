@@ -6,13 +6,20 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:06:39 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/17 10:27:20 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:15:43 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_error(char *err)
+void	print_error(char *err, char **tmp)
+{
+	ft_putstr(err);
+	ft_free(tmp);
+	exit (1);
+}
+
+void	error(char *err)
 {
 	ft_putstr(err);
 	exit (1);
