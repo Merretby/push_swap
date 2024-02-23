@@ -6,11 +6,27 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:31:14 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/22 18:17:47 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/23 14:49:34 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	ft_print_ruls(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (s != NULL)
+	{
+		while (s[i])
+		{
+			write(1, &s[i], 1);
+			i++;
+		}
+		write(1, "\n", 1);
+	}
+}
 
 int	ft_push(t_list **stack_x, t_list **stack_y)
 {
@@ -27,13 +43,13 @@ int	ft_push(t_list **stack_x, t_list **stack_y)
 int	pa(t_list **stack_a, t_list **stack_b)
 {
 	if (ft_push(stack_b, stack_a) != -1)
-		ft_putstr("pa");
+		ft_print_ruls("pa");
 	return (0);
 }
 
 int	pb(t_list **stack_a, t_list **stack_b)
 {
 	if (ft_push(stack_a, stack_b) != -1)
-		ft_putstr("pb");
+		ft_print_ruls("pb");
 	return (0);
 }

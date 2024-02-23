@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:52:21 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/22 15:47:50 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/23 14:43:40 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include "get_next_line/get_next_line_bonus.h"
+
 
 typedef struct s_list
 {
@@ -38,6 +40,7 @@ void	error(char *err);
 void	print_error(char *err, char **tmp);
 void	**ft_free(char **fr);
 void	free_stack(t_list **stack);
+void	bonus_error(char *err ,t_list **stack_a, t_list **stack_b);
 //utiles for help
 int		ft_isdigit(int c);
 int		ft_num(char *s);
@@ -49,6 +52,7 @@ int		the_min(t_list **stack, int i);
 int		track_index_min(t_list **stack, int i);
 t_list	*git_the_big(t_list **stack_b);
 void	index_of_b(t_list **stack_b);
+int		ft_strncmp(char *str1, char *str2, int n);
 //linked list
 t_list	*ft_lstnew(int content);
 t_list	*ft_lstlast(t_list *lst);
@@ -71,6 +75,7 @@ int		reverse_rotate(t_list **stack);
 int		rra(t_list **stack_a);
 int		rrb(t_list **stack_b);
 int		rrr(t_list **stack_a, t_list **stack_b);
+void	ft_print_ruls(char *s);
 //sort
 int		cheack_sorted(t_list **stack);
 void	sort_stack(t_list **stack_a, t_list **stack_b);

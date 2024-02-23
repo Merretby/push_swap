@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:53:20 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/22 14:01:09 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/23 14:39:51 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ void	index_of_stack(t_list **stack)
 	}
 }
 
-void	creat_list(int ac, char **av, t_list **stack_a)
+void	creat_list(int ac, char **av, t_list **stack_a, t_list **stack_b)
 {
+	char	**tmp;
 	int		i;
 	int		j;
-	char	**tmp;
 	t_list	*node;
 
 	i = 1;
@@ -64,10 +64,13 @@ void	creat_list(int ac, char **av, t_list **stack_a)
 		while (tmp[j])
 		{
 			if (check_dobel(ft_atoi(tmp[j]), stack_a))
-				print_error("Error");
-			node = ft_lstnew(ft_atoi(tmp[j]));
+			{
+				free_stack (stack_a);
+				free_stack (stack_b);
+				print_error("Error", tmp);
+			}
+			node = ft_lstnew(ft_atoi(tmp[j++]));
 			ft_lstadd_back(stack_a, node);
-			j++;
 		}
 		ft_free(tmp);
 		i++;
@@ -75,21 +78,70 @@ void	creat_list(int ac, char **av, t_list **stack_a)
 	index_of_stack(stack_a);
 }
 
-// void	print_list(t_list *head)
-// {
-// 	printf("LIST => \n");
-// 	while (head != NULL)
-// 	{
-// 		printf("Content: %d, Index: %d\n", head->content, head->index);
-// 		head = head->next;
-// 	}
-// 	printf("\n\n");
-// }
+void	take_line(char *buffer, t_list **stack_a, t_list **stack_b)
+{
+	while ((buffer = get_next_line(0)))
+	{
+		if (!ft_strncmp(buffer, "sa\n", 3))
+			ft_swap(stack_a);
+		else if (!ft_strncmp(buffer, "sb\n", 3))
+			ft_swap(stack_b);
+		else if (!ft_strncmp(buffer, "ss\n", 3) && !ft_swap(stack_a))
+			ft_swap(stack_b);
+		else if (!ft_strncmp(buffer, "pa\n", 3))
+			ft_push(stack_b, stack_a);
+		else if (!ft_strncmp(buffer, "pb\n", 3))
+			ft_push(stack_a, stack_b);
+		else if (!ft_strncmp(buffer, "ra\n", 3))
+			ft_rotate(stack_a);
+		else if (!ft_strncmp(buffer, "rb\n", 3))
+			ft_rotate(stack_b);
+		else if (!ft_strncmp(buffer, "rr\n", 3))
+		{
+			ft_rotate(stack_a);
+			ft_rotate(stack_b);
+		}
+		else if (!ft_strncmp(buffer, "rra\n", 4))
+			reverse_rotate(stack_a);
+		else if (!ft_strncmp(buffer, "rrb\n", 4))
+			reverse_rotate(stack_b);
+		else if (!ft_strncmp(buffer, "rrr\n", 4))
+		{
+			reverse_rotate(stack_a);
+			reverse_rotate(stack_b);
+		}
+		else
+		{
+			free (buffer);
+			bonus_error("Error", stack_a, stack_b);
+		}
+		free(buffer);
+	}
+}
+
+void	print_res(t_list **stack_a, t_list **stack_b)
+{
+	if (cheack_sorted(stack_a) && ft_lstsize(*stack_b) == 0)
+	{
+		free_stack(stack_a);
+		free_stack(stack_b);
+		printf("OK\n");
+		exit (0);
+	}
+	else
+	{
+		free_stack(stack_a);
+		free_stack(stack_b);
+		printf("KO\n");
+		exit (0);
+	}
+}
 
 int	main(int ac, char **av)
 {
 	t_list	**stack_a;
 	t_list	**stack_b;
+	char	*buffer;
 
 	if (ac < 2)
 		exit (1);
@@ -100,12 +152,8 @@ int	main(int ac, char **av)
 		exit (1);
 	*stack_a = NULL;
 	*stack_b = NULL;
-	creat_list(ac, av, stack_a);
-	if (cheack_sorted(stack_a))
-		exit (0);
-	sort_stack(stack_a, stack_b);
-	// print_list(*stack_a);
-	// print_list(*stack_b);
-	free_stack(stack_a);
-	free_stack(stack_b);
+	buffer = NULL;
+	creat_list(ac, av, stack_a, stack_b);
+	take_line (buffer, stack_a, stack_b);
+	print_res(stack_a, stack_b);
 }

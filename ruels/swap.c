@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:05:04 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/22 18:22:11 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/23 14:43:09 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,20 @@ int	ft_swap(t_list **stack)
 int	sa(t_list **stack)
 {
 	if (ft_swap(stack) != -1)
-		ft_putstr("sa");
+		ft_print_ruls("sa");
 	return (0);
 }
 
 int	sb(t_list **stack)
 {
 	if (ft_swap(stack) != -1)
-		ft_putstr("sb");
+		ft_print_ruls("sb");
 	return (0);
 }
 
 int	ss(t_list **stack_a, t_list **stack_b)
 {
 	if (ft_swap(stack_a) != -1 && ft_swap(stack_b) != -1)
-		ft_putstr("ss");
+		ft_print_ruls("ss");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:07:46 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/22 17:50:26 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/23 17:13:00 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_dobel(int nb, t_list **stack)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *stack;
 	while (tmp)
@@ -31,11 +31,25 @@ int	ft_num(char *s)
 	int	i;
 
 	i = 0;
-	if (s[0] == '-')
+	if (s[0] == '-' || s[0] == '+')
 		i++;
 	while (s[i])
 	{
 		if (!ft_isdigit(s[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	check_speac(char *str)
+{
+	int	i;
+	i = 0;
+
+	while (str[i] && str[i] != '\t')
+	{
+		if (str[i] != ' ')
 			return (0);
 		i++;
 	}
@@ -52,16 +66,16 @@ void	check(int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
-		if (av[i][0] == '\0')
-				error("Error");
+		if (av[i][0] == '\0' || check_speac(av[i]))
+			error("Error");
 		tmp = ft_split(av[i], ' ');
 		j = 0;
 		while (tmp[j])
 		{
 			nb = ft_atoi(tmp[j]);
-			if (!ft_num(tmp[j]))
-				print_error("Error", tmp);
 			if (nb > 2147483647 || nb < -2147483648)
+				print_error("Error", tmp);
+			if (!ft_num(tmp[j]))
 				print_error("Error", tmp);
 			j++;
 		}

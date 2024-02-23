@@ -5,7 +5,8 @@ CFLAGS = -Wall -Werror -Wextra -g3 #-fsanitize=address
 CFILES = push_swap.c help1.c error.c utiles.c utiles2.c list.c ruels/swap.c ruels/push.c ruels/rotate.c \
 	ruels/reverse_rotate.c sort.c sort_array.c sort_array2.c
 CBFILES = checker.c help1.c error.c utiles.c utiles2.c list.c ruels/swap.c ruels/push.c ruels/rotate.c \
-	ruels/reverse_rotate.c sort.c sort_array.c sort_array2.c
+	ruels/reverse_rotate.c sort.c sort_array.c sort_array2.c bonus/get_next_line_bonus.c \
+	bonus/get_next_line_utils_bonus.c
 OFILSE = $(CFILES:.c=.o)
 OBFILSE = $(CBFILES:.c=.o)
 

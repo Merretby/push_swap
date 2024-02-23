@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:13:29 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/22 17:50:45 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/23 16:08:08 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ long	ft_atoi(const char *str)
 		if (str[i] == '-')
 			signe = -1;
 		i++;
-		if (str[i] == '+' || str[i] == '-' || str[i] == '\0')
+		if (!(ft_isdigit(str[i])))
 			return (2147483649);
 	}
 	while (str[i] >= '0' && str[i] <= '9')
@@ -40,7 +40,7 @@ long	ft_atoi(const char *str)
 	}
 	return (res * signe);
 }
-	
+
 void	ft_putstr(char *s)
 {
 	int	i;

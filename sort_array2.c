@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 10:10:47 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/19 17:00:37 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/22 18:38:31 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	sorting(t_list **stack_a, t_list **stack_b, t_sort *new_sort)
 		if ((*stack_a)->content <= new_sort->array[new_sort->start])
 		{
 			pb(stack_a, stack_b);
-			if (ft_lstsize(* stack_b) >= 2)
+			if (ft_lstsize(*stack_b) >= 2)
 				rb(stack_b);
 			increment_range(new_sort, size);
 		}
