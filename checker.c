@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:53:20 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/23 14:39:51 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/24 15:27:37 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,63 +78,33 @@ void	creat_list(int ac, char **av, t_list **stack_a, t_list **stack_b)
 	index_of_stack(stack_a);
 }
 
-void	take_line(char *buffer, t_list **stack_a, t_list **stack_b)
+int	ft_rules(char *buffer, t_list **stack_a, t_list **stack_b)
 {
-	while ((buffer = get_next_line(0)))
-	{
-		if (!ft_strncmp(buffer, "sa\n", 3))
-			ft_swap(stack_a);
-		else if (!ft_strncmp(buffer, "sb\n", 3))
-			ft_swap(stack_b);
-		else if (!ft_strncmp(buffer, "ss\n", 3) && !ft_swap(stack_a))
-			ft_swap(stack_b);
-		else if (!ft_strncmp(buffer, "pa\n", 3))
-			ft_push(stack_b, stack_a);
-		else if (!ft_strncmp(buffer, "pb\n", 3))
-			ft_push(stack_a, stack_b);
-		else if (!ft_strncmp(buffer, "ra\n", 3))
-			ft_rotate(stack_a);
-		else if (!ft_strncmp(buffer, "rb\n", 3))
-			ft_rotate(stack_b);
-		else if (!ft_strncmp(buffer, "rr\n", 3))
-		{
-			ft_rotate(stack_a);
-			ft_rotate(stack_b);
-		}
-		else if (!ft_strncmp(buffer, "rra\n", 4))
-			reverse_rotate(stack_a);
-		else if (!ft_strncmp(buffer, "rrb\n", 4))
-			reverse_rotate(stack_b);
-		else if (!ft_strncmp(buffer, "rrr\n", 4))
-		{
-			reverse_rotate(stack_a);
-			reverse_rotate(stack_b);
-		}
-		else
-		{
-			free (buffer);
-			bonus_error("Error", stack_a, stack_b);
-		}
-		free(buffer);
-	}
-}
-
-void	print_res(t_list **stack_a, t_list **stack_b)
-{
-	if (cheack_sorted(stack_a) && ft_lstsize(*stack_b) == 0)
-	{
-		free_stack(stack_a);
-		free_stack(stack_b);
-		printf("OK\n");
-		exit (0);
-	}
+	if (!ft_strncmp(buffer, "sa\n", 3))
+		ft_swap(stack_a);
+	else if (!ft_strncmp(buffer, "sb\n", 3))
+		ft_swap(stack_b);
+	else if (!ft_strncmp(buffer, "ss\n", 3) && !ft_swap(stack_a))
+		ft_swap(stack_b);
+	else if (!ft_strncmp(buffer, "pa\n", 3))
+		ft_push(stack_b, stack_a);
+	else if (!ft_strncmp(buffer, "pb\n", 3))
+		ft_push(stack_a, stack_b);
+	else if (!ft_strncmp(buffer, "ra\n", 3))
+		ft_rotate(stack_a);
+	else if (!ft_strncmp(buffer, "rb\n", 3))
+		ft_rotate(stack_b);
+	else if (!ft_strncmp(buffer, "rr\n", 3) && !ft_rotate(stack_a))
+		ft_rotate(stack_b);
+	else if (!ft_strncmp(buffer, "rra\n", 4))
+		reverse_rotate(stack_a);
+	else if (!ft_strncmp(buffer, "rrb\n", 4))
+		reverse_rotate(stack_b);
+	else if (!ft_strncmp(buffer, "rrr\n", 4) && !reverse_rotate(stack_a))
+		reverse_rotate(stack_b);
 	else
-	{
-		free_stack(stack_a);
-		free_stack(stack_b);
-		printf("KO\n");
-		exit (0);
-	}
+		return (-1);
+	return (0);
 }
 
 int	main(int ac, char **av)
@@ -148,12 +118,19 @@ int	main(int ac, char **av)
 	check(ac, av);
 	stack_a = malloc(sizeof(t_list *));
 	stack_b = malloc(sizeof(t_list *));
-	if (!stack_a || !stack_b)
-		exit (1);
 	*stack_a = NULL;
 	*stack_b = NULL;
-	buffer = NULL;
 	creat_list(ac, av, stack_a, stack_b);
-	take_line (buffer, stack_a, stack_b);
+	buffer = get_next_line(0);
+	while (buffer)
+	{
+		if (ft_rules(buffer, stack_a, stack_b) == -1)
+		{
+			free (buffer);
+			bonus_error("Error", stack_a, stack_b);
+		}
+		free(buffer);
+		buffer = get_next_line(0);
+	}
 	print_res(stack_a, stack_b);
 }

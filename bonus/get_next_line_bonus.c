@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 10:44:49 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/23 14:58:16 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/24 15:28:19 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ char	*get_line(char *tmp, int i)
 		j++;
 	}
 	line[j] = '\0';
-	free(tmp);
-	return (line);
+	return (free(tmp), line);
 }
 
 char	*get_next_line(int fd)

@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 10:34:51 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/23 12:10:06 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:56:42 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char		*ft_strdup(char *str);
 char		*ft_strjoin(char *s1, char *s2);
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100
+#  define BUFFER_SIZE 1
 # endif
 
 # ifndef MAX

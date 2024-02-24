@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:06:39 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/23 14:13:20 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/24 14:19:21 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	error(char *err)
 	exit (1);
 }
 
-void	bonus_error(char *err ,t_list **stack_a, t_list **stack_b)
+void	bonus_error(char *err, t_list **stack_a, t_list **stack_b)
 {
 	ft_putstr(err);
 	free_stack(stack_a);

@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:49:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/23 15:25:33 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/24 15:28:36 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void	creat_list(int ac, char **av, t_list **stack_a, t_list **stack_b)
 			{
 				free_stack (stack_a);
 				free_stack (stack_b);
-				printf ("hna3\n");
 				print_error("Error", tmp);
 			}
 			node = ft_lstnew(ft_atoi(tmp[j++]));
@@ -122,8 +121,6 @@ int	main(int ac, char **av)
 		exit (0);
 	}
 	sort_stack(stack_a, stack_b);
-	// print_list(*stack_a);
-	// print_list(*stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }
