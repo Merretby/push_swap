@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:52:21 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/23 18:28:33 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/26 09:21:26 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		the_min(t_list **stack, int i);
 int		track_index_min(t_list **stack, int i);
 t_list	*git_the_big(t_list **stack_b);
 void	index_of_b(t_list **stack_b);
-int		ft_strncmp(char *str1, char *str2, int n);
+int		ft_strcmp(char *str1, char *str2);
 //linked list
 t_list	*ft_lstnew(int content);
 t_list	*ft_lstlast(t_list *lst);

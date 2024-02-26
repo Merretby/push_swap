@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:49:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/24 15:28:36 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/26 09:32:10 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,27 +77,6 @@ void	creat_list(int ac, char **av, t_list **stack_a, t_list **stack_b)
 	}
 	index_of_stack(stack_a);
 }
-
-void	print_list(t_list *head)
-{
-	printf("LIST => \n");
-	while (head != NULL)
-	{
-		printf("Content: %d, Index: %d\n", head->content, head->index);
-		head = head->next;
-	}
-	printf("\n\n");
-}
-
-// void ft_display_stack(t_list **stack)
-// {
-// 	t_list *temp = *stack;
-// 	while (temp)
-// 	{
-// 		printf("%d\n", temp->content);
-// 		temp = temp->next;
-// 	}
-// }
 
 int	main(int ac, char **av)
 {

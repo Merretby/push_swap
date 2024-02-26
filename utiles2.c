@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 18:16:54 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/23 18:19:32 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/26 09:21:28 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	cheack_sorted(t_list **stack)
 	return (1);
 }
 
-int	ft_strncmp(char *str1, char *str2, int n)
+int	ft_strcmp(char *str1, char *str2)
 {
 	int		i;
 	char	*s1;
@@ -78,7 +78,7 @@ int	ft_strncmp(char *str1, char *str2, int n)
 	s2 = str2;
 	if (s1 == NULL || s2 == NULL)
 		return (0);
-	while (i < n && (s1[i] || s2[i]))
+	while (s1[i] || s2[i])
 	{
 		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);

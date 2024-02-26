@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
+/*   By: moer-ret <moer-ret@studen2.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 13:53:20 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/24 15:27:37 by moer-ret         ###   ########.fr       */
+/*   Created: 2/02/22 13:53:20 by moer-ret          #+#    #+#             */
+/*   Updated: 2/02/26 09:20:35 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,27 +80,27 @@ void	creat_list(int ac, char **av, t_list **stack_a, t_list **stack_b)
 
 int	ft_rules(char *buffer, t_list **stack_a, t_list **stack_b)
 {
-	if (!ft_strncmp(buffer, "sa\n", 3))
+	if (!ft_strcmp(buffer, "sa\n"))
 		ft_swap(stack_a);
-	else if (!ft_strncmp(buffer, "sb\n", 3))
+	else if (!ft_strcmp(buffer, "sb\n"))
 		ft_swap(stack_b);
-	else if (!ft_strncmp(buffer, "ss\n", 3) && !ft_swap(stack_a))
+	else if (!ft_strcmp(buffer, "ss\n") && !ft_swap(stack_a))
 		ft_swap(stack_b);
-	else if (!ft_strncmp(buffer, "pa\n", 3))
+	else if (!ft_strcmp(buffer, "pa\n"))
 		ft_push(stack_b, stack_a);
-	else if (!ft_strncmp(buffer, "pb\n", 3))
+	else if (!ft_strcmp(buffer, "pb\n"))
 		ft_push(stack_a, stack_b);
-	else if (!ft_strncmp(buffer, "ra\n", 3))
+	else if (!ft_strcmp(buffer, "ra\n"))
 		ft_rotate(stack_a);
-	else if (!ft_strncmp(buffer, "rb\n", 3))
+	else if (!ft_strcmp(buffer, "rb\n"))
 		ft_rotate(stack_b);
-	else if (!ft_strncmp(buffer, "rr\n", 3) && !ft_rotate(stack_a))
+	else if (!ft_strcmp(buffer, "rr\n") && !ft_rotate(stack_a))
 		ft_rotate(stack_b);
-	else if (!ft_strncmp(buffer, "rra\n", 4))
+	else if (!ft_strcmp(buffer, "rra\n"))
 		reverse_rotate(stack_a);
-	else if (!ft_strncmp(buffer, "rrb\n", 4))
+	else if (!ft_strcmp(buffer, "rrb\n"))
 		reverse_rotate(stack_b);
-	else if (!ft_strncmp(buffer, "rrr\n", 4) && !reverse_rotate(stack_a))
+	else if (!ft_strcmp(buffer, "rrr\n") && !reverse_rotate(stack_a))
 		reverse_rotate(stack_b);
 	else
 		return (-1);
