@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 20:43:46 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/23 14:42:47 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/26 12:49:15 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	reverse_rotate(t_list **stack)
 	if (*stack == NULL)
 		return (-1);
 	second = *stack;
-	while (second->next->next)
+	while (second->next && second->next->next)
 		second = second->next;
 	tmp = ft_lstlast(*stack);
 	ft_lstadd_front(stack, tmp);

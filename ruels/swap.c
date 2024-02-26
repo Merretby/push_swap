@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:05:04 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/23 14:43:09 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/26 12:53:01 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,15 @@ int	ft_swap(t_list **stack)
 	node = head->next;
 	if (!head && !node)
 		exit (1);
-	tmp = head->content;
-	head->content = node->content;
-	node->content = tmp;
-	index = head->index;
-	head->index = node->index;
-	node->index = index;
+	if (node)
+	{
+		tmp = head->content;
+		head->content = node->content;
+		node->content = tmp;
+		index = head->index;
+		head->index = node->index;
+		node->index = index;
+	}
 	return (0);
 }
 
