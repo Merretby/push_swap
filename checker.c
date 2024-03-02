@@ -35,20 +35,6 @@ t_list	*find_min(t_list **stack)
 	return (min);
 }
 
-void	index_of_stack(t_list **stack)
-{
-	t_list	*min;
-	int		i;
-
-	i = 0;
-	min = find_min(stack);
-	while (min)
-	{
-		min->index = i++;
-		min = find_min(stack);
-	}
-}
-
 void	creat_list(int ac, char **av, t_list **stack_a, t_list **stack_b)
 {
 	char	**tmp;
@@ -84,8 +70,11 @@ int	ft_rules(char *buffer, t_list **stack_a, t_list **stack_b)
 		ft_swap(stack_a);
 	else if (!ft_strcmp(buffer, "sb\n"))
 		ft_swap(stack_b);
-	else if (!ft_strcmp(buffer, "ss\n") && !ft_swap(stack_a))
+	else if (!ft_strcmp(buffer, "ss\n"))
+	{
+		ft_swap(stack_a);
 		ft_swap(stack_b);
+	}
 	else if (!ft_strcmp(buffer, "pa\n"))
 		ft_push(stack_b, stack_a);
 	else if (!ft_strcmp(buffer, "pb\n"))
@@ -94,14 +83,27 @@ int	ft_rules(char *buffer, t_list **stack_a, t_list **stack_b)
 		ft_rotate(stack_a);
 	else if (!ft_strcmp(buffer, "rb\n"))
 		ft_rotate(stack_b);
-	else if (!ft_strcmp(buffer, "rr\n") && !ft_rotate(stack_a))
+	else
+		return (ft_rules_2(buffer, stack_a, stack_b));
+	return (0);
+}
+
+int	ft_rules_2(char *buffer, t_list **stack_a, t_list **stack_b)
+{
+	if (!ft_strcmp(buffer, "rr\n"))
+	{
+		ft_rotate(stack_a);
 		ft_rotate(stack_b);
+	}
 	else if (!ft_strcmp(buffer, "rra\n"))
 		reverse_rotate(stack_a);
 	else if (!ft_strcmp(buffer, "rrb\n"))
 		reverse_rotate(stack_b);
-	else if (!ft_strcmp(buffer, "rrr\n") && !reverse_rotate(stack_a))
+	else if (!ft_strcmp(buffer, "rrr\n"))
+	{
+		reverse_rotate(stack_a);
 		reverse_rotate(stack_b);
+	}
 	else
 		return (-1);
 	return (0);

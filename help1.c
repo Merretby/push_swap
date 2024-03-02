@@ -6,11 +6,25 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:07:46 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/24 15:28:15 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/29 14:40:09 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	index_of_stack(t_list **stack)
+{
+	t_list	*min;
+	int		i;
+
+	i = 0;
+	min = find_min(stack);
+	while (min)
+	{
+		min->index = i++;
+		min = find_min(stack);
+	}
+}
 
 int	check_dobel(int nb, t_list **stack)
 {
@@ -81,23 +95,5 @@ void	check(int ac, char **av)
 		}
 		ft_free(tmp);
 		i++;
-	}
-}
-
-void	print_res(t_list **stack_a, t_list **stack_b)
-{
-	if (cheack_sorted(stack_a) && ft_lstsize(*stack_b) == 0)
-	{
-		free_stack(stack_a);
-		free_stack(stack_b);
-		printf("OK\n");
-		exit (0);
-	}
-	else
-	{
-		free_stack(stack_a);
-		free_stack(stack_b);
-		printf("KO\n");
-		exit (0);
 	}
 }

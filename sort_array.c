@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:59:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/26 13:01:07 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/03/01 14:12:16 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	range(t_list **stack)
 	else if (size <= 100)
 		return (15);
 	else if (size <= 500)
-		return (30);
+		return (35);
 	else
 		return (50);
 }

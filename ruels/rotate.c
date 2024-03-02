@@ -6,11 +6,29 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:52:13 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/23 14:42:56 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/29 14:39:40 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	print_res(t_list **stack_a, t_list **stack_b)
+{
+	if (cheack_sorted(stack_a) && ft_lstsize(*stack_b) == 0)
+	{
+		free_stack(stack_a);
+		free_stack(stack_b);
+		printf("OK\n");
+		exit (0);
+	}
+	else
+	{
+		free_stack(stack_a);
+		free_stack(stack_b);
+		printf("KO\n");
+		exit (0);
+	}
+}
 
 int	ft_rotate(t_list **stack)
 {

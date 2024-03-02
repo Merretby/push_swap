@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:49:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/26 09:32:10 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/03/01 14:02:32 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,6 @@ t_list	*find_min(t_list **stack)
 		head = head->next;
 	}
 	return (min);
-}
-
-void	index_of_stack(t_list **stack)
-{
-	t_list	*min;
-	int		i;
-
-	i = 0;
-	min = find_min(stack);
-	while (min)
-	{
-		min->index = i++;
-		min = find_min(stack);
-	}
 }
 
 void	creat_list(int ac, char **av, t_list **stack_a, t_list **stack_b)

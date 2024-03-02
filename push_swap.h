@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:52:21 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/02/26 09:21:26 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/02/29 14:41:13 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	**ft_free(char **fr);
 void	free_stack(t_list **stack);
 void	bonus_error(char *err, t_list **stack_a, t_list **stack_b);
 //utiles for help
+t_list	*find_min(t_list **stack);
+void	index_of_stack(t_list **stack);
 int		ft_isdigit(int c);
 int		ft_num(char *s);
 long	ft_atoi(const char *str);
@@ -76,6 +78,7 @@ int		rrb(t_list **stack_b);
 int		rrr(t_list **stack_a, t_list **stack_b);
 void	ft_print_ruls(char *s);
 void	print_res(t_list **stack_a, t_list **stack_b);
+int		ft_rules_2(char *buffer, t_list **stack_a, t_list **stack_b);
 //sort
 int		cheack_sorted(t_list **stack);
 void	sort_stack(t_list **stack_a, t_list **stack_b);
