@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:59:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2024/03/01 14:12:16 by moer-ret         ###   ########.fr       */
+/*   Updated: 2024/03/05 09:12:20 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	range(t_list **stack)
 	else if (size <= 100)
 		return (15);
 	else if (size <= 500)
-		return (35);
+		return (45);
 	else
 		return (50);
 }
@@ -91,7 +91,7 @@ void	array_sort(t_sort *new_sort, t_list **stack_a, t_list **stack_b)
 	new_sort->end = new_sort->range - 1;
 	new_sort->array = malloc(sizeof(int) * j);
 	if (!new_sort->array)
-		exit (1);
+		return ;
 	while (tmp)
 	{
 		new_sort->array[i] = tmp->content;
